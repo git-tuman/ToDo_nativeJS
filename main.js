@@ -30,10 +30,10 @@ const showTasks = () => {
 
         switch(task.priority) {
             case PRIORITIES.HIGH:
-                highList.insertAdjacentElement('afterbegin', taskUI);
+                highList.insertAdjacentElement('beforeend', taskUI);
                 break;
             case PRIORITIES.LOW:
-                lowList.insertAdjacentElement('afterbegin', taskUI);
+                lowList.insertAdjacentElement('beforeend', taskUI);
                 break;
             default:
                 break;
@@ -42,10 +42,17 @@ const showTasks = () => {
         const btnDelete = taskUI.querySelector('.task__delete');
         btnDelete.addEventListener('click', (event) => {
             event.stopPropagation();
-            taskDelete(task.name);
+
+            toDoList.deleteTask(task.id);
+
+            showTasks();
         });
 
-        taskUI.addEventListener('click', () => taskChange(task.name));
+        taskUI.addEventListener('click', () => {
+            toDoList.changeStatus(task.id);
+
+            showTasks();
+        });
     })
 }
 
@@ -64,18 +71,6 @@ const taskSubmitHandler = (event) => {
 
     toDoList.addTask(taskInput.value, priority);
     taskInput.value = "";
-
-    showTasks();
-}
-
-const taskDelete = (task) => {
-    toDoList.deleteTask(task);
-
-    showTasks();
-}
-
-const taskChange = (task) => {
-    toDoList.changeStatus(task);
 
     showTasks();
 }

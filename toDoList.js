@@ -2,6 +2,7 @@ import data from './tasks.json' with {type: "json"};
 import { ERROR, STATUSES } from './constants.js';
 
 function Task(name, priority) {
+    this.id = Math.floor(Math.random() * 1000);
     this.name = name;
     this.status = STATUSES.TO_DO;
     this.priority = priority;
@@ -10,8 +11,8 @@ function Task(name, priority) {
 export const toDoList = {
     list: data.tasks,
 
-    getIndexTask(name) {
-        return this.list.findIndex(task => task.name === name);
+    getIndexTask(id) {
+        return this.list.findIndex(task => task.id === id);
     },
 
     checkValidStatus(newStatus) {
@@ -30,8 +31,8 @@ export const toDoList = {
         return indexTask !== -1;
     },
 
-    changeStatus(name) {
-        const indexTask = this.getIndexTask(name);
+    changeStatus(id) {
+        const indexTask = this.getIndexTask(id);
         const task = this.list[indexTask];
 
         switch (task.status) {
@@ -50,15 +51,17 @@ export const toDoList = {
 
     addTask(name, priority) {
         const isNotCorrectlyName = name.length > 30 || name.length < 3;
+
         if (isNotCorrectlyName) {
             alert(ERROR);
             throw new Error(ERROR);
         }
+
         this.list.push(new Task(name, priority));
     },
 
-    deleteTask(name) {
-        const indexTask = this.getIndexTask(name);
+    deleteTask(id) {
+        const indexTask = this.getIndexTask(id);
 
         this.list.splice(indexTask, 1);
     }
