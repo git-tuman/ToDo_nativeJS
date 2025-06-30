@@ -1,0 +1,198 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #f8f7ff;
+    width: 476px;
+    padding: 10px 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.toDoList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.toDoList__priority {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.toDoList__form {
+    padding: 12px;
+    border: 1px solid #9381ff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toDoList__input {
+    width: 100%;
+}
+
+.toDoList__btn-add {
+    width: 20px;
+    height: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border: 1px solid #9381ff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.task__checkbox {
+    appearance: none;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #b8b8ff;
+    position: relative;
+    margin-right: 12px;
+    top: 2px;
+}
+
+.task__checkbox:checked {
+    border: 1px solid #9381ff;
+}
+
+.task__checkbox:checked::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    background: #9381ff;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.task__label {
+    display: flex;
+}
+
+.task__label-text {
+    max-width: 370px;
+    word-break: break-all;
+    text-align: left;
+}
+
+.task.active {
+    background-color: #A9D3FF;
+}
+
+.task__delete {
+    margin-left: auto;
+}

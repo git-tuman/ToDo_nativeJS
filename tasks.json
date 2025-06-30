@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "name": "Первая задача",
+            "status": "To Do",
+            "priority": "high"
+        },
+
+        {
+            "name": "Вторая задача",
+            "status": "DONE",
+            "priority": "high"
+        },
+
+        {
+            "name": "Третья задача",
+            "status": "To Do",
+            "priority": "high"
+        },
+
+        {
+            "name": "Четвертая задача",
+            "status": "DONE",
+            "priority": "low"
+        },
+
+        {
+            "name": "Пятая задача",
+            "status": "To Do",
+            "priority": "low"
+        }
+    ]
+}
