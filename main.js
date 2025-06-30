@@ -2,14 +2,14 @@ import { toDoList } from "./toDoList.js";
 import { PRIORITIES, STATUSES } from "./constants.js";
 
 const forms = document.querySelectorAll('.toDoList__form');
+const taskLists = document.querySelectorAll('.toDoList__list');
+const highList = document.getElementById('high-list');
+const lowList = document.getElementById('low-list');
 
 const showTasks = () => {
-    const highList = document.getElementById('high-list');
-    const lowList = document.getElementById('low-list');
-
     clearTasks();
 
-    toDoList.list.forEach(task => {
+    toDoList.list.forEach((task) => {
         const taskUI = document.createElement('li');
         taskUI.className = 'task';
 
@@ -57,9 +57,7 @@ const showTasks = () => {
 }
 
 const clearTasks = () => {
-    const taskLists = document.querySelectorAll('.toDoList__list');
-
-    taskLists.forEach(taskList => taskList.innerHTML = '');
+    taskLists.forEach((taskList) => taskList.innerHTML = '');
 }
 
 const taskSubmitHandler = (event) => {
